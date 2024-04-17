@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Register</title>
+  <!-- base:css -->
+ 
+ <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ <script src="{% static 'js/input_change_actions.js' %}"></script>
+
+
+
+</head>
+
+<body>
+<div class="container-scroller">
+  {% include 'partials/_closed_nav_bar.html' %}
+<div class="container-fluid page-body-wrapper">
+
+<div class="main-panel">        
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"></h4>
+            <p class="card-description">
+              Register
+            </p>
+            {% include 'partials/_messages.html' %}
+            <form class="forms-sample" action="{% url 'register'%}" method = "post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="inputUsername">Username</label>
+                <input type="text" name = 'username' class="form-control" id="inputUsername" placeholder="Username" value = "{{fieldValue.username}}">
+              </div>
+              <div class="form-group">
+                <label for="inputEmail1">Email address</label>
+                <input type="email" name = 'email' class="form-control" id="inputEmail" placeholder="Email" value="{{fieldValue.email}}">
+              </div>
+              <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" name = 'password' class="form-control" id="inputPassword" placeholder="Password" value="{{fieldValue.password}}">
+              </div>
+              <div class="form-group">
+                <label for="inputConfirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password">
+              </div>
+              <!-- <div class="form-check form-check-flat form-check-primary">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  Remember me
+                </label>
+              </div> -->
+              <button type="submit" class="btn btn-primary mr-2" id='submit' value="Register">Submit</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Sof</a> </span>
+    </div>
+  </footer>
+  <!-- partial -->
+</div>
+</body>
+
+</html>
